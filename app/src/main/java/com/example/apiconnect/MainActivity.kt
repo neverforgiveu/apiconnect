@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
@@ -27,80 +29,78 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         view.setBackgroundColor(Color.rgb(133, 194, 255))
 
-       /* bttest.setOnClickListener {
+
+
+
+        bttest.setOnClickListener {
         val newUser = Gson().fromJson(json,BOuserlogin.BOuseraccount::class.java )
             tv1.text = "\nuserId: ${newUser.userid}"  + "\naccount ${newUser.account} "+  "\naccesstoken: ${newUser.accesstoken}"
 
-        }*/
+        }
 
 
 
 
         bt1.setOnClickListener {
 
-                val client = OkHttpClient()
-                val request = Request.Builder()
-                    .url("http://demoeapi.meya.com.tw/Api/index.php")
-                    .build()
-
-
-
-                // val sb = StringBuffer()
-               doAsync(){
-
-               client.newCall(request).enqueue(object : Callback {
-                   override fun onFailure(call: Call, e: IOException) {
-                       tv1.text = e.toString()
-                   }
-
-                   override fun onResponse(call: Call, response: Response) {
-                       val resStr = response.body()?.string()
-                       val test = Gson().fromJson(resStr,test::class.java )
-                       uiThread {
-                           tv1.text = "isSuccess: "+test.IsSuccess.toString()+ "\nMessage: "+test.Message
-                       }
-                       //val tests: List<test> = Gson().fromJson(resStr, Array<test>::class.java).toList()
-                      /* for(item in tests){
-                          var  result ="\nuserId: " + item.userId + "\ntitle: "+ item.title + "\n"+ "\nbody: "+ item.body+ "\nid: "+ item.id
-
-                           uiThread {
-
-                               /*Log.e("id", "id: " + item.id)
-                               Log.e("title", "title: " + item.title)
-                               Log.e("body", "body: " + item.body)
-                               Log.e("userId", "userId: " + item.userId)*/
-                               tv1.text = "isSuccess: "+item.IsSuccess +"\nMessage:" + item.Message
-                           }
-                       }*/
-
-
-
-                      /* val sb = StringBuffer()
-                       for(item in posts){
-                           sb.append("\nuserId: ")
-                           sb.append(item.userId)
-                           sb.append("\ntitle: ")
-                           sb.append(item.title)
-                           sb.append("\nbody: ")
-                           sb.append(item.body)
-                           sb.append("\nid: ")
-                           sb.append(item.id)
-                       }
-
-
-                       uiThread {
-
-                           tv1.text = sb.toString()
-                       }*/
-                     }
-                  })
-               }
         }
 
-
-
-
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_option, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+           R.id.getuser -> getUSERdata()
+        }
+        return true
+    }
+
+    fun getUSERdata(){
+
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("http://demoeapi.meya.com.tw/Api/index.php")
+            .build()
+
+
+
+        // val sb = StringBuffer()
+        doAsync(){
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    tv1.text = e.toString()
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val resStr = response.body()?.string()
+                    val test = Gson().fromJson(resStr,test::class.java )
+                    uiThread {
+                        tv1.text = "isSuccess: "+test.IsSuccess.toString()+ "\nMessage: "+test.Message
+                    }
+                    //val tests: List<test> = Gson().fromJson(resStr, Array<test>::class.java).toList()
+                    /* for(item in tests){
+                        var  result ="\nuserId: " + item.userId + "\ntitle: "+ item.title + "\n"+ "\nbody: "+ item.body+ "\nid: "+ item.id
+
+                         uiThread {
+
+                             /*Log.e("id", "id: " + item.id)
+                             Log.e("title", "title: " + item.title)
+                             Log.e("body", "body: " + item.body)
+                             Log.e("userId", "userId: " + item.userId)*/
+                             tv1.text = "isSuccess: "+item.IsSuccess +"\nMessage:" + item.Message
+                         }
+                     }*/
+
+                }
+            })
+        }
+    }
+
 
 
 

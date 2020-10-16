@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/getuser"
+        android:title="getuser"
+        android:orderInCategory="1"
+        tools:icon="@drawable/mr_button_light"
+        />
+    <item
+        android:id="@+id/test"
+        android:title="test"
+        android:orderInCategory="2"
+        tools:icon="@drawable/mr_button_light"
+        />
+</menu>
