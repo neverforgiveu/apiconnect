@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
 
         bt1.setOnClickListener {
-            val user = User.login("jeff","123")
+            val user = User.login("jeff＠gmail.com","123")
             val json =  Gson().toJson(user)
             val newUser = Gson().fromJson(json,User.login::class.java )
             tv1.text = "account: ${newUser.account}\n"+"password: ${newUser.password}"
@@ -49,6 +49,10 @@ class MainActivity : AppCompatActivity() {
 
         btbull.setOnClickListener {
             startActivity<MainActivityBulletin>()
+            //getUSERdata()
+        }
+        btcustomer.setOnClickListener {
+            startActivity<MainActivityCustomer>()
         }
 
 
@@ -130,17 +134,54 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
+   var tmp = ""
     fun getUSERdata(){
+        doAsync() {
 
-        val client = OkHttpClient()
-        val request = Request.Builder()
-            .url("http://demoeapi.meya.com.tw/Api/index.php")
-            .build()
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("https://jsonplaceholder.typicode.com/posts")
+                .build()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val resStr = response.body()?.string()
+                    val tests: List<test.Posts> =
+                        Gson().fromJson(resStr, Array<test.Posts>::class.java).toList()
+                    val sb = StringBuffer()
+
+                    for (item in tests) {
+                        sb.append("userId: ")
+                        sb.append(item.userId)
+                        sb.append("\n")
+                        sb.append("title: ")
+                        sb.append(item.title)
+                        sb.append("\n")
+                        sb.append("body: ")
+                        sb.append(item.body)
+                        sb.append("\n")
+                        sb.append("id: ")
+                        sb.append(item.id)
+                        sb.append("\n")
+                    }
+                     tmp = sb.toString()
+                    runOnUiThread() {
+                        tv1.text = tmp
+                    }
+
+                }
+
+            })
 
 
+        }
 
-        // val sb = StringBuffer()
+
+       /*
         doAsync(){
 
             client.newCall(request).enqueue(object : Callback {
@@ -171,6 +212,11 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }
+
+        */
+
+
+
     }
 
 

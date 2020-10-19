@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.bt1
 import kotlinx.android.synthetic.main.activity_main.tv1
 import okhttp3.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.uiThread
 
 import java.io.IOException
@@ -54,6 +55,9 @@ class MainActivityBulletin : AppCompatActivity() {
                     "endtime: ${newUser.endtime}\n"
         }
 
+        btback.setOnClickListener {
+           finish()
+        }
 
 
 

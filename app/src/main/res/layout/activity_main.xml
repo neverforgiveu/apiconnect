@@ -4,21 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D9FFFF"
+    android:background="#C7C7E2"
     android:id="@+id/view"
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/tv1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="資料"
-        android:layout_marginTop="32dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bt1"
-         />
+
 
     <Button
         android:id="@+id/bt1"
@@ -44,5 +35,36 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt1"
+       >
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="資料"
+            android:layout_marginTop="32dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bt1"
+            />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btcustomer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="客戶"
+        android:background="@drawable/button_round2"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintRight_toRightOf="@id/btbull"
+        app:layout_constraintBottom_toTopOf="@id/btbull"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

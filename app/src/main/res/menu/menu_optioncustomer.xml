@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/getcustomer"
+        android:title="取得後台使用者"
+        android:orderInCategory="1"
+        tools:icon="@drawable/mr_button_light"
+        />
+    <item
+        android:id="@+id/getdownline"
+        android:title="取得後台使用者下線"
+        android:orderInCategory="2"
+        tools:icon="@drawable/mr_button_light"
+        />
+    <item
+        android:id="@+id/getloginlog"
+        android:title="取得客戶登入記錄"
+        android:orderInCategory="3"
+        tools:icon="@drawable/mr_button_light"
+        />
+    <item
+        android:id="@+id/getphone"
+        android:title="取得客戶手機"
+        android:orderInCategory="4"
+        tools:icon="@drawable/mr_button_light"
+        />
+
+</menu>
