@@ -1,5 +1,13 @@
 package com.example.apiconnect
 
-data class  test(var IsSuccess: Boolean, var Message: String){
+class test{
+    data class  test(var IsSuccess: Boolean, var Message: String){
+
+    }
+
+    data class userInfo(var account: String = "", var password:String = "", var userid:Int = 0, val accesstoken:String = ""){
+
+    }
+
 
 }

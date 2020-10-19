@@ -5,15 +5,45 @@
 
 
     <item
-        android:id="@+id/getuser"
-        android:title="getuser"
+        android:id="@+id/getaccount"
+        android:title="取得後台使用者帳號"
         android:orderInCategory="1"
         tools:icon="@drawable/mr_button_light"
         />
     <item
-        android:id="@+id/test"
-        android:title="test"
+        android:id="@+id/getloginlog"
+        android:title="取得後台登入紀錄"
         android:orderInCategory="2"
+        tools:icon="@drawable/mr_button_light"
+        />
+    <item
+        android:id="@+id/getoperationlog"
+        android:title="取得後台操作紀錄"
+        android:orderInCategory="3"
+        tools:icon="@drawable/mr_button_light"
+        />
+    <item
+        android:id="@+id/getpermission"
+        android:title="取得後台使用者權限"
+        android:orderInCategory="4"
+        tools:icon="@drawable/mr_button_light"
+        />
+    <item
+        android:id="@+id/logout"
+        android:title="後台使用者登出"
+        android:orderInCategory="5"
+        tools:icon="@drawable/mr_button_light"
+        />
+    <item
+        android:id="@+id/settranslation"
+        android:title="設定後台多語系字典"
+        android:orderInCategory="6"
+        tools:icon="@drawable/mr_button_light"
+        />
+    <item
+        android:id="@+id/setuser"
+        android:title="新增或更新後台使用者"
+        android:orderInCategory="7"
         tools:icon="@drawable/mr_button_light"
         />
 </menu>
