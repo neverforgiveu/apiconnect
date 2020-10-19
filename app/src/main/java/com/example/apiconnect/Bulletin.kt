@@ -1,19 +1,19 @@
 package com.example.apiconnect
 
-class bulletin {
+class Bulletin {
 
 
-    data class BOnotify(var userid: Int, var accesstoken: String, var limit: Int, var page: Int) {
+    data class getbulletin(var userid: Int, var accesstoken: String, var limit: Int, var page: Int) {
 
     }
 
 
-    data class BOnotify２(
+    data class setbulletin(
         var userid: Int,
         var accesstoken: String,
-        var limit: Int,
         var id: Int,
         var content: String,
+        var disable:String,
         var starttime: String,
         var endtime: String
     ) {

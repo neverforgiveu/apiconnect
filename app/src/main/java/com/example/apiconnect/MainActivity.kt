@@ -14,6 +14,7 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.uiThread
 
 import java.io.IOException
@@ -45,6 +46,11 @@ class MainActivity : AppCompatActivity() {
             val newUser = Gson().fromJson(json,User.login::class.java )
             tv1.text = "account: ${newUser.account}\n"+"password: ${newUser.password}"
         }
+
+        btbull.setOnClickListener {
+            startActivity<MainActivityBulletin>()
+        }
+
 
     }
 
